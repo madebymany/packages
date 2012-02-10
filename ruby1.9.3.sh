@@ -9,8 +9,8 @@ cd /usr/src
 wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p0.tar.gz
 tar zxf ruby-1.9.3-p0.tar.gz
 wget https://raw.github.com/gist/1658360/cumulative_performance.patch
-patch -p1 < ../cumulative_performance.patch
 cd ruby-1.9.3-p0
+patch -p1 < ../cumulative_performance.patch
 time (./configure --prefix=/usr && make && make install DESTDIR=installdir)
 
 gem install fpm
