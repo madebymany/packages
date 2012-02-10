@@ -4,7 +4,6 @@ apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-c
                 zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev \
                 libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
 
-gem install fpm
 
 cd /usr/src
 wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p0.tar.gz
@@ -13,6 +12,8 @@ wget https://raw.github.com/gist/1658360/cumulative_performance.patch
 patch -p1 < ../cumulative_performance.patch
 cd ruby-1.9.3-p0
 time (./configure --prefix=/usr && make && make install DESTDIR=installdir)
+
+gem install fpm
 
 fpm -s dir -t deb -n ruby -v 1.9.3-cp -C installdir \
     -p ruby-VERSION_ARCH.deb -d "libstdc++6 (>= 4.4.3)" \
