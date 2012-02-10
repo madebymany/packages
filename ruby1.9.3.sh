@@ -21,3 +21,6 @@ fpm -s dir -t deb -n ruby -v 1.9.3-cp -C installdir \
     -d "libncurses5 (>= 5.7)" -d "libreadline6 (>= 6.1)" \
      -d "libssl0.9.8 (>= 0.9.8)" -d "zlib1g (>= 1:1.2.2)" \
      usr/bin usr/lib usr/share/man usr/include
+
+mkdir -p ../../debs
+mv *.deb ../../debs/
