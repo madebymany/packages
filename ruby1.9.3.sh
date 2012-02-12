@@ -14,6 +14,7 @@ cd ruby-1.9.3-p0
 patch -p1 < ../cumulative_performance.patch
 time (./configure --prefix=/usr && make && make install DESTDIR=installdir)
 
+make install
 /usr/bin/gem install fpm
 
 fpm -s dir -t deb -n ruby -v 1.9.3-cp -C installdir \
